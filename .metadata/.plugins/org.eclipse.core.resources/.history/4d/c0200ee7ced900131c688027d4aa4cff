@@ -1,0 +1,13 @@
+package com.example.tasklist;
+
+
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.app.Fragment;
+
+public class TaskFragment extends Fragment { 
+}

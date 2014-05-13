@@ -15,6 +15,7 @@
 		<item value="false" key="wholeword"/>
 		<item value="3" key="selection"/>
 		<list key="findhistory">
+			<item value="rowdatea"/>
 			<item value="3"/>
 		</list>
 		<list key="replacehistory">

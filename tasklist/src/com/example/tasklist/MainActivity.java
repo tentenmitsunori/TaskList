@@ -129,7 +129,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             	case 0:
             		return new TaskFragment();
             	case 1:
-            		return PlaceholderFragment.newInstance(position + 1);
+            		return new PostFragment();
             	default :
             		return PlaceholderFragment.newInstance(position + 1);
             }        	

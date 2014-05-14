@@ -2,6 +2,7 @@ package com.example.tasklist;
 
 
 import com.example.tasklist.view.CustomScrollView;
+import com.example.tasklist.view.TaskAdapter;
 
 import android.app.ActionBar.LayoutParams;
 import android.os.Bundle;
@@ -77,8 +78,8 @@ public class TaskFragment extends Fragment {
 
 	public void initFoodTaskListView(View v){
 		ListView foodTaskListView = (ListView) v.findViewById(R.id.foodTaskListView);
-		ArrayAdapter<String> arrayAdapter
-			= new FoodTaskAdapter();
+		TaskAdapter arrayAdapter
+                = new TaskAdapter(getActivity(), R.layout.row);
 		foodTaskListView.setAdapter(arrayAdapter);
 		View lvItem = foodTaskListView.getAdapter().getView(0, null, (ViewGroup) v);
 		lvItem.measure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),

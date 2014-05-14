@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" xmlns:android="http://schemas.android.com/apk/res/android">
-
     <RadioGroup
         android:id="@+id/radioGroup1"
         android:layout_width="match_parent"
@@ -43,7 +42,7 @@
             android:text="トレーニング" />
     </RadioGroup>
 
-    <ScrollView
+    <com.example.tasklist.view.CustomScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
@@ -96,6 +95,5 @@
             </ListView>
 
         </LinearLayout>
-    </ScrollView>
-
+    </com.example.tasklist.view.CustomScrollView>
 </LinearLayout>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <string name="app_name">tasklist</string>
-    <string name="title_section1">タスク</string>
-    <string name="title_section2">投稿</string>
-    <string name="action_settings">Settings</string>
-
-</resources>

@@ -1,6 +1,8 @@
 package com.example.tasklist;
 
 
+import com.example.tasklist.view.CustomScrollView;
+
 import android.app.ActionBar.LayoutParams;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,6 +21,7 @@ import android.widget.Toast;
 
 public class TaskFragment extends Fragment { 
 	private String[] data = {"Apple", "Lemon", "Orange", "Strawberry","Apple", "Lemon", "Orange", "Strawberry"};
+	private CustomScrollView scroll;
 	@Override	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -28,8 +31,21 @@ public class TaskFragment extends Fragment {
 	    initLifeStyleTaskListView(v);
 	    initTrainingTaskListView(v);
 	    setRadioGroupChecked(v);
+	    setScrollPosition(v);
 		return v;
 	}
+	
+	public void setScrollPosition(View v){
+		scroll = (CustomScrollView) v.findViewById(R.id.scrollView1);
+		scroll.setScrollToBottomListener(new CustomScrollView.ScrollToBottomListener() {
+			@Override
+			public void onScrollToBottom(CustomScrollView scrollView, int p) {
+				// TODO Auto-generated method stub
+				Log.d(null, ""+p);
+			}
+	    });
+	}
+	
 	public void setRadioGroupChecked(View v){
 		final View view = v;
 	    RadioGroup group = (RadioGroup)view.findViewById(R.id.radioGroup1);
@@ -37,19 +53,20 @@ public class TaskFragment extends Fragment {
 	    	@Override
 	    	public void onCheckedChanged(RadioGroup group, int checkedId) {
 	    		int fdHeight = view.findViewById(R.id.foodTaskListView).getHeight();
+	    		int fdtHeight = view.findViewById(R.id.TextView02).getHeight();
 	    		int lsHeight = view.findViewById(R.id.lifeStyleTaskListView).getHeight();
+	    		int lstHeight = view.findViewById(R.id.textView1).getHeight();
 	    		ScrollView sv = (ScrollView)view.findViewById(R.id.scrollView1);
-	    		Log.d(null,""+fdHeight);
-	    		Log.d(null,""+(lsHeight+fdHeight));
+
 	    		switch(checkedId){
 	    			case R.id.radioFood:
 	    				sv.smoothScrollTo(0, 0);	
 	    				return;
 	    			case R.id.radioLifeStyle:
-	    				sv.smoothScrollTo(0, fdHeight);	
+	    				sv.smoothScrollTo(0, (fdHeight+fdtHeight));	
 	    				return;
 	    			case R.id.radioTraining:
-	    				sv.smoothScrollTo(0, (lsHeight+fdHeight));	
+	    				sv.smoothScrollTo(0, (lsHeight+fdHeight+fdtHeight+lstHeight));	
 	    				return;
 	    			default:
 	    				return;
@@ -61,7 +78,7 @@ public class TaskFragment extends Fragment {
 	public void initFoodTaskListView(View v){
 		ListView foodTaskListView = (ListView) v.findViewById(R.id.foodTaskListView);
 		ArrayAdapter<String> arrayAdapter
-			= new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, data);
+			= new FoodTaskAdapter();
 		foodTaskListView.setAdapter(arrayAdapter);
 		View lvItem = foodTaskListView.getAdapter().getView(0, null, (ViewGroup) v);
 		lvItem.measure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),

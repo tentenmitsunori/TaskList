@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp" >
+
+        <RadioButton
+            android:id="@+id/radioFood2"
+            style="@style/MyRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="0.74"
+            android:checked="true"
+            android:gravity="center"
+            android:scrollHorizontally="false"
+            android:text="食事"
+            android:textAllCaps="false" />
+
+        <RadioButton
+            android:id="@+id/radioLifeStyle2"
+            style="@style/MyRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="0.41"
+            android:gravity="center"
+            android:text="生活習慣" />
+
+        <RadioButton
+            android:id="@+id/radioTraining2"
+            style="@style/MyRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="トレーニング" />
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/foodTaskPostLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="食事投稿"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textAppearance="?android:attr/textAppearanceMedium">
+        	<requestFocus />
+        </TextView>
+
+        <EditText
+            android:id="@+id/EditText01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/Button01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lifeStyleTaskPostLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"> 
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="生活習慣投稿"
+        	android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textAppearance="?android:attr/textAppearanceMedium">
+        	<requestFocus />
+		</TextView>
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textMultiLine" >
+        </EditText>
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+    </LinearLayout>
+    <LinearLayout 
+        android:id="@+id/trainingTaskPostLayout"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:orientation="vertical"
+        android:visibility="gone"> 
+        <TextView
+            android:id="@+id/TextView02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:text="トレーニング投稿"
+           	android:focusable="true"
+            android:textAppearance="?android:attr/textAppearanceMedium">
+        	<requestFocus />
+		</TextView>
+		
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:src="@drawable/ic_launcher" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+        </LinearLayout>
+
+</LinearLayout>

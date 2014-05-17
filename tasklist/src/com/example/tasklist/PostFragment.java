@@ -1,19 +1,26 @@
 package com.example.tasklist;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 
 public class PostFragment extends Fragment {
+	protected static final int REQUEST_CAPTURE_IMAGE = 0;
+
 	@Override	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// このフラグメント用のレイアウトをインフレートする
 		View v = inflater.inflate(R.layout.post_fragment, container, false);
 	    setRadioGroupChecked(v);
+	    setListeners(v);
 		return v;
 	}
 	
@@ -47,5 +54,19 @@ public class PostFragment extends Fragment {
 	    		}
 	    	}
 	    });	
+	}
+	
+	public void setListeners(View v){
+		ImageView btn = (ImageView) v.findViewById(R.id.imageView1);
+		btn.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(
+					MediaStore.ACTION_IMAGE_CAPTURE);
+				startActivityForResult(
+					intent,
+					REQUEST_CAPTURE_IMAGE);
+			}
+		});
 	}
 }
